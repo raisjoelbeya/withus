@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.3.2
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_FEATURES: preview
+      KC_HTTP_RELATIVE_PATH: /
+    command: start-dev --import-realm
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./realm/withus-realm-realm.json:/opt/keycloak/data/import/withus-realm-realm.json

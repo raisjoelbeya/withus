@@ -1,0 +1,67 @@
+{
+  "id": "withus-realm",
+  "realm": "withus-realm",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "requiredCredentials": ["password"],
+  "users": [
+    {
+      "username": "user1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "User",
+      "lastName": "One",
+      "email": "user1@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test123",
+          "temporary": false,
+          "createdDate": 1635156990859
+        }
+      ],
+      "requiredActions": [],
+      "realmRoles": ["user"],
+      "clientRoles": {
+        "withus-client": ["user"]
+      },
+      "attributes": {},
+      "groups": []
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "User role",
+        "composite": false,
+        "clientRole": false
+      }
+    ]
+  },
+  "defaultRoles": ["user"],
+  "clients": [
+    {
+      "clientId": "withus-client",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "authorizationServicesEnabled": false,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "protocol": "openid-connect",
+      "attributes": {
+        "access.token.lifespan": "900",
+        "backchannel.logout.session.required": "true",
+        "client_credentials.use_refresh_token": "false",
+        "exclude.session.state.from.auth.response": "false"
+      }
+    }
+  ],
+  "browserFlow": "browser",
+  "directGrantFlow": "direct grant"
+}
