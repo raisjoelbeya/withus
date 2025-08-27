@@ -1,0 +1,28 @@
+# Maven
+target/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env files
+.env
+*.properties
+
+# Docker Compose
+docker-compose.yml
+docker-compose.*.yml
