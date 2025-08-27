@@ -15,6 +15,12 @@ public class AuthenticationService {
     @Value("${keycloak.realm}")
     private String realm;
 
+    @Value("${keycloak.resource}")
+    private String clientId;
+
+    @Value("${keycloak.grant-type}")
+    private String pwdGrantType;
+
     private final WebClient webClient;
 
     public AuthenticationService(WebClient.Builder webClientBuilder) {
@@ -23,8 +29,8 @@ public class AuthenticationService {
 
     public Object login(String username, String password) {
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-        formData.add("grant_type", "password");
-        formData.add("client_id", "withus-client");
+        formData.add("grant_type", pwdGrantType);
+        formData.add("client_id", clientId);
         formData.add("username", username);
         formData.add("password", password);
 
