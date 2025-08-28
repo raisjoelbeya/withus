@@ -9,11 +9,18 @@ on:
 env:
   IMAGE_NAME: withus-app
   CONTAINER_REGISTRY: ghcr.io  # GitHub Container Registry
-  CONTAINER_IMAGE: ghcr.io/raisjoelbeya/withus:latest
+  CONTAINER_IMAGE: ghcr.io/${{ github.repository_owner }}/withus:latest
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     
     steps:
     - uses: actions/checkout@v4
